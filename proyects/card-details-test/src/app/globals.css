@@ -42,8 +42,26 @@ body {
   display: flex;
   flex-direction: column;
 }
+.front-image{
+
+}
+.back-image{
+
+}
 .shadow-image {
   filter: drop-shadow(1px 1px 5px #000);
+  position: absolute;
+  z-index: 16;
+}
+.contentcard{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 18;
+  padding: 15px;
+  width: 200px;
+  height: 106px;
+  color: #fff
 }
 .second-section {
   display: flex;
@@ -54,16 +72,66 @@ body {
   align-items: center;
   flex-grow: 3;
 }
-@media (width < 710px) {
+.form-space {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 300px;
+  margin-left: 150px;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  gap: 12px;
+}
+.label-text {
+  font-size: 15px;
+  font-weight: lighter;
+  color: #5f5f5f;
+}
+.inputs {
+  border-radius: 4px;
+  border: 1px solid #d1d1d1;
+  padding: 4px;
+  width: 95%;
+  margin-top: 4px;
+}
+.inputs-small {
+  border-radius: 4px;
+  border: 1px solid #d1d1d1;
+  padding: 4px;
+  width: 60%;
+  margin-top: 4px;
+}
+.inputs-second-small {
+  border-radius: 4px;
+  border: 1px solid #d1d1d1;
+  padding: 4px;
+  width: 90%;
+  margin-top: 4px;
+}
+@media (width < 750px) {
   .position-image {
     left: 1rem;
   }
 }
-@media (width < 600px) {
+@media (width < 680px) {
   .container {
     flex-direction: column;
   }
   .first-section {
     background-image: url(../images/bg-main-mobile.png);
   }
+}
+.button-submit {
+  background-color: rgb(41, 13, 49);
+  border-radius: 4px;
+  border: 1px solid #d1d1d1;
+  padding: 8px;
+  width: 100%;
+  margin-top: 20px;
+  color: white;
 }
