@@ -2,60 +2,46 @@ import Bg from "@/images/bg-main-desktop.png"
 import BgCardBack from "@/images/bg-card-back.png"
 import BgCardFront from "@/images/bg-card-front.png"
 import Image from "next/image"
+import "@/app/globals.css"
 export default function Target() {
   return (
-    <main
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignContent: "center",
-        flexDirection: "row",
-        height: "80vh",
-        width: "120vh",
-        position: "relative",
-        backgroundColor: "white"
-      }}
-    >
-      <div style={{ flex: 1 }}>
-        <div
-          style={{
-            position: "absolute",
-            top: "5rem",
-            left: "5rem",
-            display: "flex",
-            flexDirection: "column"
-          }}
-        >
-          <Image
-            src={BgCardFront}
-            alt="asd"
-            width={230}
-            style={{ boxShadow:"1px 1px 8px #000"}}
-          />
-          <Image
-            src={BgCardBack}
-            alt="asd"
-            width={230}
-            style={{ marginLeft: 40, marginTop: 25, boxShadow:"1px 1px 8px #000" }}
-          />
-        </div>
-        <div style={{ height: "100%" }}>
-          <Image
-            src={Bg}
-            alt="asd"
-            style={{ height: "100%", width: "100%" }}
-          />
+    <main className="container">
+      <div className="first-section">
+        <div className="position-image">
+          <div>
+            <Image
+              src={BgCardFront}
+              alt="asd"
+              width={230}
+              className="shadow-image"
+            />
+          </div>
+          <div>
+            <Image
+              src={BgCardBack}
+              alt="asd"
+              width={230}
+              style={{
+                marginLeft: 40,
+                marginTop: 25
+              }}
+              className="shadow-image"
+            />
+          </div>
         </div>
       </div>
-      <div
-        style={{
-          flex: 2,
-          display: "flex",
-          justifyContent: "end",
-          alignItems: "center"
-        }}
-      >
-        <div>
+      <div className="second-section">
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            maxWidth: 300,
+            marginLeft: 150
+          }}
+        >
           <form
             action=""
             style={{ display: "flex", flexDirection: "column", width: "80%" }}

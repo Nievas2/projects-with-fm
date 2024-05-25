@@ -2,17 +2,15 @@ import Target from "../components/target"
 
 export default function Home() {
   return (
-    <main
-      style={{
-        display: "flex",
-        width: "100%",
-        height: "100vh",
-        justifyContent: "center"
-      }}
-    >
-      <div style={{ alignContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
         <Target />
       </div>
-    </main>
   )
 }

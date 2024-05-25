@@ -2,14 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
 
 body {
   color: rgb(var(--foreground-rgb));
   background: #000;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+  height: 80vh;
+  width: 90%;
+  max-width: 800;
+  position: relative;
+  background-color: white;
+}
+.first-section {
+  flex: 2;
+  flex-grow: 1;
+  background-image: url(../images/bg-main-desktop.png);
+}
+.position-image {
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+.shadow-image {
+  filter: drop-shadow(1px 1px 5px #000);
+}
+.second-section {
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 3;
+}
+@media (width < 710px) {
+  .position-image {
+    left: 1rem;
+  }
+}
+@media (width < 600px) {
+  .container {
+    flex-direction: column;
+  }
+  .first-section {
+    background-image: url(../images/bg-main-mobile.png);
   }
 }
