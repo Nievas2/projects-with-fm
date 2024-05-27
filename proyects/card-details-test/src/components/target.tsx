@@ -9,6 +9,7 @@ import Logo from "@/images/card-logo.svg"
 import { ChangeEvent, useState } from "react"
 import { useFormik } from "formik"
 import { schemaCard } from "@/services/schema"
+import Succes from "./succes"
 export default function Target() {
   const [cardHolder, setCardHolder] = useState([
     "0",
@@ -31,6 +32,7 @@ export default function Target() {
     "0",
     "0"
   ])
+  const [succes, setSucces] = useState(false)
   const formik = useFormik({
     initialValues: {
       cardHolder: "",
@@ -42,7 +44,8 @@ export default function Target() {
     validationSchema: schemaCard,
     enableReinitialize: true,
     onSubmit: (values) => {
-      console.log(values)
+      setSucces(true)
+      formik.resetForm()
     }
   })
 
@@ -88,13 +91,14 @@ export default function Target() {
               >
                 {cardHolder.map((date: string, index: number) => (
                   <p
-                  style={{
-                    margin: 0,
-                    flex: 1,
-                    letterSpacing: "0.1rem",
-                    textAlign: "center", display: "inline-block"
-                  }} key={crypto.randomUUID()}
-              
+                    style={{
+                      margin: 0,
+                      flex: 1,
+                      letterSpacing: "0.1rem",
+                      textAlign: "center",
+                      display: "inline-block"
+                    }}
+                    key={crypto.randomUUID()}
                   >
                     {index == 4 || index == 9 || index == 14 ? "-" : ""}
                     {index < 4
@@ -133,152 +137,188 @@ export default function Target() {
                   </p>
                 ))}
               </div>
-              <div
-              className="name-card"
-              >
+              <div className="name-card">
                 <small
                   style={{ flex: 1, fontWeight: "lighter", color: " #aaa" }}
                 >
-                  {formik.values.cardHolder ? formik.values.cardHolder.toLocaleUpperCase() : "Jane Appleseed"}
+                  {formik.values.cardHolder
+                    ? formik.values.cardHolder.toLocaleUpperCase()
+                    : "Jane Appleseed"}
                 </small>
-                <small style={{ flex: 1, textAlign: "end" }}>{formik.values.expiryDateMM ? formik.values.expiryDateMM : "00"}/{formik.values.expiryDateYY ? formik.values.expiryDateYY : "00"}</small>
+                <small style={{ flex: 1, textAlign: "end" }}>
+                  {formik.values.expiryDateMM
+                    ? formik.values.expiryDateMM
+                    : "00"}
+                  /
+                  {formik.values.expiryDateYY
+                    ? formik.values.expiryDateYY
+                    : "00"}
+                </small>
               </div>
             </div>
           </div>
-          <div >
+          <div>
             <Image
               src={BgCardBack}
               alt="asd"
               width={230}
               className="shadow-image front-image"
             />
-            <div
-              className="contentcard-back"
-            >
-              <p style={{ marginRight: 10 }}>{formik.values.cvc ? formik.values.cvc : "123"}</p>
+            <div className="contentcard-back">
+              <p style={{ marginRight: 10 }}>
+                {formik.values.cvc ? formik.values.cvc : "123"}
+              </p>
             </div>
           </div>
         </div>
       </div>
       <div className="second-section">
-        <div className="form-space">
-          <form
-            className="form-container"
-            onSubmit={formik.handleSubmit}
-          >
-            <div>
-              <label className="label-text">CARDHOLDER NAME</label>
-              <input
-                id="cardHolder"
-                name="cardHolder"
-                type="text"
-                className="inputs"
-                placeholder="Jane Appleseed"
-                style={{borderColor: formik.errors.cardHolder ? "red" : "black"}}
-                onBlur={formik.handleBlur}
-                onChange={formik.handleChange}
-                value={formik.values.cardHolder}
-              />
-              {formik.touched.cardHolder && formik.errors.cardHolder ? (
-                <small style={{ color: "red" }}>{formik.errors.cardHolder}</small>
-              ) : null}
-            </div>
-            <div>
-              <label className="label-text">CARD NUMBER</label>
-              <input
-                id="cardNumber"
-                name="cardNumber"
-                className="inputs"
-                placeholder="0000000000000000"
-                style={{borderColor: formik.errors.cardNumber ? "red" : "black"}}
-                onBlur={formik.handleBlur}
-                onChange={formik.handleChange}
-                value={formik.values.cardNumber}
-                /* {...formik.getFieldProps('cardNumber')} */
-                maxLength={16}
-              />
-              {formik.touched.cardNumber && formik.errors.cardNumber ? (
-                <small style={{ color: "red" }}>{formik.errors.cardNumber}</small>
-              ) : null}
-            </div>
-            <div
-              style={{ display: "flex", flexDirection: "row", flex: 2, gap: 8 }}
+        {succes ? (
+          <Succes setSucces={setSucces} />
+        ) : (
+          <div className="form-space">
+            <form
+              className="form-container"
+              onSubmit={formik.handleSubmit}
             >
-              <div
-                style={{ flex: 1, display: "flex", flexDirection: "column" }}
-              >
-                <label className="label-text">EXP.DATE (MM/YY)</label>
-                <div style={{ display: "flex", flexDirection: "row", gap: 8 }}>
-                  <div style={{display:"flex", flexDirection:"column"}}>
-                    <input
-                    id="expiryDateMM"
-                    type="text"
-                    className="inputs-small"
-                    placeholder="MM"
-                    style={{borderColor: formik.errors.expiryDateMM ? "red" : "black"}}
-                    name="expiryDateMM"
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                    value={formik.values.expiryDateMM}
-                    maxLength={2}
-                  />
-                  {formik.touched.expiryDateMM && formik.errors.expiryDateMM ? (
-                    <small style={{ color: "red" }}>
-                      {formik.errors.expiryDateMM}
-                    </small>
-                  ) : null}
-                  </div>
-                  <div style={{display:"flex", flexDirection:"column"}}>
-                    <input
-                    id="expiryDateYY"
-                    type="text"
-                    className="inputs-small"
-                    style={{borderColor: formik.errors.expiryDateYY ? "red" : "black"}}
-                    name="expiryDateYY"
-                    placeholder="YY"
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                    value={formik.values.expiryDateYY}
-                    maxLength={2}
-                  />
-                  {formik.touched.expiryDateYY && formik.errors.expiryDateYY ? (
-                    <small style={{ color: "red" }}>
-                      {formik.errors.expiryDateYY}
-                    </small>
-                  ) : null}
-                  </div>
-                  
-                </div>
-              </div>
-              <div
-                style={{ flex: 1, display: "flex", flexDirection: "column" }}
-              >
-                <label className="label-text">CVC</label>
+              <div>
+                <label className="label-text">CARDHOLDER NAME</label>
                 <input
-                  id="cvc"
+                  id="cardHolder"
+                  name="cardHolder"
                   type="text"
-                  className="inputs-second-small"
-                  style={{borderColor: formik.errors.cvc ? "red" : "black"}}
-                  placeholder="e.g. 123"
-                  name="cvc"
+                  className="inputs"
+                  placeholder="Jane Appleseed"
+                  style={{
+                    borderColor: formik.errors.cardHolder ? "red" : "black"
+                  }}
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
-                  value={formik.values.cvc}
-                  maxLength={3}
+                  value={formik.values.cardHolder}
                 />
-                {formik.touched.cvc && formik.errors.cvc ? (
-                  <small style={{ color: "red" }}>{formik.errors.cvc}</small>
+                {formik.touched.cardHolder && formik.errors.cardHolder ? (
+                  <small style={{ color: "red" }}>
+                    {formik.errors.cardHolder}
+                  </small>
                 ) : null}
               </div>
-            </div>
-            <button
-              className="button-submit"
-              type="submit"
-            >
-              Confirm
-            </button>
-          </form>
-        </div>
+              <div>
+                <label className="label-text">CARD NUMBER</label>
+                <input
+                  id="cardNumber"
+                  name="cardNumber"
+                  className="inputs"
+                  placeholder="0000000000000000"
+                  style={{
+                    borderColor: formik.errors.cardNumber ? "red" : "black"
+                  }}
+                  onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  value={formik.values.cardNumber}
+                  /* {...formik.getFieldProps('cardNumber')} */
+                  maxLength={16}
+                />
+                {formik.touched.cardNumber && formik.errors.cardNumber ? (
+                  <small style={{ color: "red" }}>
+                    {formik.errors.cardNumber}
+                  </small>
+                ) : null}
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  flex: 2,
+                  gap: 8
+                }}
+              >
+                <div
+                  style={{ flex: 1, display: "flex", flexDirection: "column" }}
+                >
+                  <label className="label-text">EXP.DATE (MM/YY)</label>
+                  <div
+                    style={{ display: "flex", flexDirection: "row", gap: 8 }}
+                  >
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <input
+                        id="expiryDateMM"
+                        type="text"
+                        className="inputs-small"
+                        placeholder="MM"
+                        style={{
+                          borderColor: formik.errors.expiryDateMM
+                            ? "red"
+                            : "black"
+                        }}
+                        name="expiryDateMM"
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        value={formik.values.expiryDateMM}
+                        maxLength={2}
+                      />
+                      {formik.touched.expiryDateMM &&
+                      formik.errors.expiryDateMM ? (
+                        <small style={{ color: "red" }}>
+                          {formik.errors.expiryDateMM}
+                        </small>
+                      ) : null}
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <input
+                        id="expiryDateYY"
+                        type="text"
+                        className="inputs-small"
+                        style={{
+                          borderColor: formik.errors.expiryDateYY
+                            ? "red"
+                            : "black"
+                        }}
+                        name="expiryDateYY"
+                        placeholder="YY"
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        value={formik.values.expiryDateYY}
+                        maxLength={2}
+                      />
+                      {formik.touched.expiryDateYY &&
+                      formik.errors.expiryDateYY ? (
+                        <small style={{ color: "red" }}>
+                          {formik.errors.expiryDateYY}
+                        </small>
+                      ) : null}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style={{ flex: 1, display: "flex", flexDirection: "column" }}
+                >
+                  <label className="label-text">CVC</label>
+                  <input
+                    id="cvc"
+                    type="text"
+                    className="inputs-second-small"
+                    style={{ borderColor: formik.errors.cvc ? "red" : "black" }}
+                    placeholder="e.g. 123"
+                    name="cvc"
+                    onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    value={formik.values.cvc}
+                    maxLength={3}
+                  />
+                  {formik.touched.cvc && formik.errors.cvc ? (
+                    <small style={{ color: "red" }}>{formik.errors.cvc}</small>
+                  ) : null}
+                </div>
+              </div>
+              <button
+                className="button-submit"
+                type="submit"
+              >
+                Confirm
+              </button>
+            </form>
+          </div>
+        )}
       </div>
     </main>
   )

@@ -47,8 +47,6 @@ body {
   margin-left: 40px;
   top: 155px;
 }
-.back-image {
-}
 .shadow-image {
   filter: drop-shadow(1px 1px 5px #000);
   position: absolute;
@@ -108,6 +106,16 @@ body {
   width: 95%;
   gap: 12px;
 }
+.succes-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  max-width: 300px;
+  margin-left: 150px;
+}
 .label-text {
   font-size: 12px;
   font-weight: lighter;
@@ -134,6 +142,11 @@ body {
   width: 90%;
   margin-top: 4px;
 }
+@media (width > 820px) {
+  .position-image {
+    left: 8rem;
+  }
+}
 @media (width < 780px) {
   .position-image {
     left: 1rem;
@@ -152,7 +165,7 @@ body {
   .position-image {
     position: absolute;
     top: 0;
-    left: 20%;
+    left: 30%;
     bottom: 0;
     right: 0;
     margin: auto;
@@ -165,7 +178,7 @@ body {
     top: 80px;
     z-index: 14;
   }
-  .contentcard-back{
+  .contentcard-back {
     top: 32px;
   }
   .contentcard {
@@ -174,26 +187,36 @@ body {
   .form-space {
     margin-left: 0;
     margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .succes-form {
+    margin-left: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
   .second-section {
     padding-top: 15px;
   }
+  .container {
+    height: 100vh;
+    width: 100vh;
+  }
 }
 @media (width < 500px) {
   .position-image {
-    left: 10%;
+    left: 20%;
   }
 }
 @media (width < 345px) {
   .position-image {
-    left: 5px;
+    left: 10%;
   }
 }
 .button-submit {
   background-color: rgb(41, 13, 49);
   border-radius: 4px;
   border: 1px solid #d1d1d1;
-  padding: 8px;
+  padding: 10px;
   width: 100%;
   margin-top: 20px;
   color: white;
