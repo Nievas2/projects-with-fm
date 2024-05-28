@@ -1,8 +1,19 @@
+"use client"
 import Image from "next/image"
 import styles from "./page.module.css"
 import ItemList from "@/components/item-list"
-
+import { useFormik } from "formik"
+import { emailSchema } from "@/services/schemas/emailSchema"
 export default function Home() {
+  const formik = useFormik({
+    initialValues: {
+      email: ""
+    },
+    validationSchema: emailSchema,
+    onSubmit: (values) => {
+      console.log(values)
+    }
+  })
   return (
     <main className="grid">
       <div className="container">
@@ -16,7 +27,20 @@ export default function Home() {
           </ul>
           <form action="">
             <label>Email address</label>
-            <input type="text" placeholder="email@company.com" />
+            <input
+              type="email"
+              id="email"
+              placeholder="email@company.com"
+              style={{
+                borderColor: formik.errors.email ? "red" : "black"
+              }}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              value={formik.values.email}
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <small className="error">{formik.errors.email}</small>
+            ) : null}
             <button>Subscribe to monthly newsletter</button>
           </form>
         </section>
@@ -24,7 +48,12 @@ export default function Home() {
           <img
             src="/Illustration-destock.png"
             className="image-destock"
-            alt="00"
+            alt="image newsletter signup"
+          />
+          <img
+            src="/Illustration-mobile.png"
+            className="image-mobile"
+            alt="image newsletter signup"
           />
         </section>
       </div>

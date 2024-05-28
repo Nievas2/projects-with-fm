@@ -17,6 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <title>Newsletter Sign-up Form</title>
       <body className={roboto.className}>{children}</body>
     </html>
   );

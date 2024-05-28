@@ -55,11 +55,12 @@ ul {
   font-size: 10px;
 }
 form {
-  font-size: 10px;
+  
   margin-top: 15px;
 }
-label{
+label {
   font-weight: bold;
+  font-size: 10px;
 }
 input {
   width: 100%;
@@ -68,8 +69,8 @@ input {
   padding: 10px;
   margin-block: 10px;
 }
-::-webkit-input-placeholder{
-  color:#bbb
+::-webkit-input-placeholder {
+  color: #bbb;
 }
 button {
   width: 100%;
@@ -81,9 +82,38 @@ button {
   margin-top: 10px;
   font-size: 10px;
 }
+.error{
+  color: red;
+  font-size: 10px;
+}
 .second-section {
   flex: 1;
 }
 .image-destock {
   height: 400px;
+}
+.image-mobile {
+  display: none;
+  height: 200px;
+}
+@media (width < 523px) {
+  .image-destock {
+    display: none;
+  }
+  .image-mobile {
+    display: block;
+    width: 100%;
+  }
+  .container {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0;
+    border-radius: 0;
+  }
+}
+@media (width < 350px) {
+  .image-mobile {
+    width: 100%;
+    height: auto;
+  }
 }
