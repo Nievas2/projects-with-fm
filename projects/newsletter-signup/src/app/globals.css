@@ -27,6 +27,25 @@ body {
   max-width: 650px;
   padding: 25px;
 }
+.container-mobile{
+  background-color: aliceblue;
+  border-radius: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 350px;
+  padding: 40px;
+}
+.icon-success{
+  flex:1
+}
+.title-success{
+  flex: 100%;
+  font-weight: bold;
+}
+.description-success{
+  flex: 100%;
+  margin-bottom: 15px;
+}
 .first-section {
   flex: 2;
   padding: 15px;
@@ -55,7 +74,6 @@ ul {
   font-size: 10px;
 }
 form {
-  
   margin-top: 15px;
 }
 label {
@@ -72,7 +90,7 @@ input {
 ::-webkit-input-placeholder {
   color: #bbb;
 }
-button {
+.button {
   width: 100%;
   border-radius: 5px;
   border: 1px solid #bbb;
@@ -81,8 +99,16 @@ button {
   color: white;
   margin-top: 10px;
   font-size: 10px;
+  transition: 300ms;
 }
-.error{
+.button:hover {
+  background: linear-gradient(
+    90deg,
+    #FF537B  0%,
+    hsl(4, 100%, 67%) 100%
+  );
+}
+.error {
   color: red;
   font-size: 10px;
 }
