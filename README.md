@@ -9,3 +9,4 @@ Practicando el uso de react y next con proyectos brindados por Frontend Mentor.
 | Número | Proyecto | Código | Web |
 | --- | --- | --- | --- |
 | `01` | Card Details | [Ver](projects/card-details/) | [Visitar](https://card-details-nine.vercel.app/) |
+| `02` | NewsLetter SignUp | [Ver](projects/newsletter-signup/) | [Visitar](https://newsletter-signup-five-alpha.vercel.app/) |
