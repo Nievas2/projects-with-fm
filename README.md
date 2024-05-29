@@ -4,7 +4,9 @@
 
 </div>
 Practicando el uso de react y next con proyectos brindados por Frontend Mentor.
-## 💼 Proyectos
+
+<h1>💼 Proyectos</h1>
+
 
 | Número | Proyecto | Código | Web |
 | --- | --- | --- | --- |
