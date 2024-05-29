@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "newsletter-signup"
+        "newsletter-signup",
+        "age-calculator"
     ]
 }

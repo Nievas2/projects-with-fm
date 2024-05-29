@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-color: black;
+}
+.radius-br{
+  border-bottom-right-radius: 8rem;
+}
+::-webkit-input-placeholder {
+  color: #bbb;
+  font-weight: bolder;
+  font-size: 18px;
+  padding-left: 8px;
+}
