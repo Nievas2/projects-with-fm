@@ -4,10 +4,12 @@ import Image from "next/image"
 import Arrow from "@/components/arrow"
 import TextCalculator from "@/components/textCalculator"
 import { useState } from "react"
+import Texts from "@/components/texts"
 export default function Home() {
   const [years, setYears] = useState(0)
   const [months, setMonths] = useState(0)
   const [days, setDays] = useState(0)
+
   return (
     <main className="flex min-h-screen items-center justify-center">
       <div className="w-full max-w-2xl items-center rounded-2xl radius-br bg-white p-10">
@@ -37,18 +39,10 @@ export default function Home() {
           </div>
         </section>
         <section className="mt-8">
-          
-        <TextCalculator
-            number={years}
-            text="years"
-          />
-          <TextCalculator
-            number={months}
-            text="months"
-          />
-          <TextCalculator
-            number={days}
-            text="days"
+          <Texts
+            days={days}
+            months={months}
+            years={years}
           />
         </section>
       </div>
