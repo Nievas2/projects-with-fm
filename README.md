@@ -12,4 +12,4 @@ Practicando el uso de react y next con proyectos brindados por Frontend Mentor.
 | --- | --- | --- | --- |
 | `01` | Card Details | [Ver](projects/01-card-details/) | [Visitar](https://card-details-nine.vercel.app/) |
 | `02` | NewsLetter SignUp | [Ver](projects/02-newsletter-signup/) | [Visitar](https://newsletter-signup-five-alpha.vercel.app/) |
-| `03` | Age Calculatort | [Ver](projects/03-age-calculator/) | [Visitar](https://age-calculator-pi-lake.vercel.app//) |
+| `03` | Age Calculator | [Ver](projects/03-age-calculator/) | [Visitar](https://age-calculator-pi-lake.vercel.app//) |
