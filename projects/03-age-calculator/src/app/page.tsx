@@ -12,9 +12,9 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen items-center justify-center">
-      <div className="w-full max-w-2xl items-center rounded-2xl radius-br bg-white p-10">
-        <section className="flex flex-1 relative">
-          <form className="flex flex-1 place-content-around border-b-2 pb-5 mr-28">
+      <div className="w-full max-w-2xl items-center rounded-2xl radius-br bg-white p-5 sm:p-10">
+        <section className="flex flex-1 flex-col relative border-b-2 mb-10 sm:mb-0">
+          <form className="flex flex-wrap mb-4 sm:mb-0 place-content-around pb-5 mr-0 sm:mr-28 ">
             <Input
               input="DD"
               label="DAY"
@@ -34,8 +34,10 @@ export default function Home() {
               max={2025}
             />
           </form>
-          <div className="absolute right-0 bottom-[-37px] rounded-full bg-[#854dff] p-4">
-            <Arrow />
+          <div className="flex sm:absolute sm:right-0 bottom-[-37px] place-content-center">
+            <div className="self-end max-w-[78px] mb-[-40px] sm:mb-0 rounded-full bg-[#854dff] p-4">
+              <Arrow />
+            </div>
           </div>
         </section>
         <section className="mt-8">

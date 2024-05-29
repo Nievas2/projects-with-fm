@@ -12,7 +12,7 @@ export default function TextCalculator({
           {number == 0 || number == undefined ? "--" : number}
         </strong>
       </p>
-      <h5 className="text-black tracking-widest text-6xl font-bold">{text}</h5>
+      <h5 className="text-black tracking-widest text-4xl sm:text-6xl font-bold">{text}</h5>
     </main>
   )
 }

@@ -25,19 +25,25 @@ export default function Texts({
   }
 
   return (
-    <main>
-      <TextCalculator
-        number={yearsDate}
-        text="years"
-      />
-      <TextCalculator
-        number={monthsDate}
-        text="months"
-      />
-      <TextCalculator
-        number={daysDate}
-        text="days"
-      />
+    <main className="flex flex-col">
+      <div>
+        <TextCalculator
+          number={yearsDate}
+          text="years"
+        />
+      </div>
+      <div>
+        <TextCalculator
+          number={monthsDate}
+          text="months"
+        />
+      </div>
+      <div>
+        <TextCalculator
+          number={daysDate}
+          text="days"
+        />
+      </div>
     </main>
   )
 }

@@ -5,7 +5,7 @@ export default function Input({
   input,
   label,
   max,
-  setResult,
+  setResult
 }: {
   input: string
   label: string
@@ -16,8 +16,8 @@ export default function Input({
   const [error, setError] = useState<string | undefined>()
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (Number(event.target.value) <= max) {
-      console.log(Number(event.target.value));
-      
+      console.log(Number(event.target.value))
+
       setValue(Number(event.target.value))
       setError(undefined)
       setResult(Number(event.target.value))
@@ -32,16 +32,22 @@ export default function Input({
     initialValues: {
       value
     },
-    onSubmit: (values : any) => {},
+    onSubmit: (values: any) => {},
     validationSchema: input.toLocaleLowerCase()
   })
   return (
     <main className="flex flex-col">
-      <label className={`text-black tracking-widest  text-xs ${error ? "text-red-500" : ""}`}>
+      <label
+        className={`text-black tracking-widest text-xs ${
+          error ? "text-red-500" : ""
+        }`}
+      >
         <strong>{label}</strong>
       </label>
       <input
-        className={`max-w-28  p-2 border-[1px] border-slate-400 rounded-md ${error ? "border-red-500" : ""}`}
+        className={`max-w-28 p-2 border-[1px] border-slate-400 rounded-md ${
+          error ? "border-red-500" : ""
+        }`}
         type="number"
         onChange={handleChange}
         placeholder={input}
