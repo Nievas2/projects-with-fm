@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "newsletter-signup",
-        "age-calculator"
+        "age-calculator",
+        "homepage-grid"
     ]
 }
