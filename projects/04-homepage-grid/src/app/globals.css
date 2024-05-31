@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color:#000;
+}
+.gridTemplate {
+  display: grid;
+  grid-template-areas:
+    "image image new"
+    "title description new";
+}
