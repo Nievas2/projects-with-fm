@@ -53,60 +53,66 @@ export default function Home() {
             really fulfilling the promise?
           </p>
           <div className="mt-8">
-            <button className="bg-[#f15e50] py-3 px-8 tracking-widest text-xs font-bold">
+            <button className="bg-[#f15e50] py-3 px-8 tracking-widest text-xs font-bold hover:text-white hover:bg-[#00001a] cursor-pointer">
               READ MORE
             </button>
           </div>
         </div>
       </section>
 
-      <section className="flex flex-1 flex-col sm:flex-row my-4 gap-8">
-        <div
-          className="flex flex-1 sm:flex-row gap-6"
-        >
-          <div>
-            <img
-              src="/image-retro-pcs.jpg"
-              alt={"image-retro-pcs"}
-            />
+      <section className="flex flex-1 flex-col sm:flex-row my-4 gap-8 flex-wrap">
+        <div className="flex flex-1 sm:flex-row gap-6">
+          <div
+            className="min-w-[120px] h-[160px]"
+            style={{
+              backgroundImage: "url(/image-retro-pcs.jpg)",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              objectFit: "cover"
+            }}
+          >
           </div>
           <div>
             <h2 className="text-[#f15e50] text-3xl">01</h2>
-            <h3 className="font-extrabold">Reviving Retro PCs</h3>
+            <h3 className="font-extrabold hover:text-[#f15e50] cursor-pointer">Reviving Retro PCs</h3>
             <p className="font-extralight text-sm">
               What happens when old PCs are given modern upgrades?
             </p>
           </div>
         </div>
-        <div
-          className="flex flex-1 sm:flex-row gap-6"
-        >
-          <div>
-            <img
-              src="/image-top-laptops.jpg"
-              alt={"image-top-laptops"}
-            />
+        <div className="flex flex-1 sm:flex-row gap-6">
+          <div
+            className="min-w-[120px] h-[160px]"
+            style={{
+              backgroundImage: "url(/image-top-laptops.jpg)",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              objectFit: "cover"
+            }}
+          >
           </div>
           <div>
-            <h2 className="text-[#f15e50] text-3xl">01</h2>
-            <h3 className="font-extrabold">Reviving Retro PCs</h3>
+            <h2 className="text-[#f15e50] text-3xl">02</h2>
+            <h3 className="font-extrabold hover:text-[#f15e50] cursor-pointer">Top 10 Laptops of 2022</h3>
             <p className="font-extralight text-sm">
-              What happens when old PCs are given modern upgrades?
+              Our best picks for various needs and budgets.
             </p>
           </div>
         </div>
-        <div
-          className="flex flex-1 sm:flex-row gap-6"
-        >
-          <div>
-            <img
-              src="/image-gaming-growth.jpg"
-              alt={"image-gaming-growth"}
-            />
+        <div className="flex flex-1 sm:flex-row gap-6">
+          <div
+            className="min-w-[120px] h-[160px]"
+            style={{
+              backgroundImage: "url(/image-gaming-growth.jpg)",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              objectFit: "cover"
+            }}
+          >
           </div>
           <div>
-            <h2 className="text-[#f15e50] text-3xl">01</h2>
-            <h3 className="font-extrabold">The Growth of Gaming</h3>
+            <h2 className="text-[#f15e50] text-3xl">03</h2>
+            <h3 className="font-extrabold hover:text-[#f15e50] cursor-pointer">The Growth of Gaming</h3>
             <p className="font-extralight text-sm">
               How the pandemic has sparked fresh opportunities.
             </p>
